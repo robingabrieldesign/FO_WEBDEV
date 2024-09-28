@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text by default */
+    font-family: Arial, sans-serif;
+}
+
+/* Overlay styling */
+.overlay {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* 50% transparent black */
+    position: absolute;
+    bottom: 0; /* Position the overlay at the bottom */
+    width: 100%;
+    padding: 20px;
+    z-index: 1000; /* Ensure it appears over the gallery */
+}
+
+.logo-container {
+    flex: 1;
+}
+
+.logo {
+    height: 50px;
+}
+
+.nav-container {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-list {
+    list-style-type: none;
+}
+
+.nav-list li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #fff; /* Keep links white */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-list a:hover {
+    text-decoration: underline; /* Hover effect for links */
+}
+
+/* Gallery styling */
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    padding-bottom: 100px; /* Add space at the bottom for the overlay */
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Start with 2 columns on load */
+    gap: 10px;
+    transition: all 0.3s ease-in-out;
+    overflow-x: auto; /* Allow horizontal scroll */
+    cursor: grab; /* Change cursor on hover */
+}
+
+.gallery:active {
+    cursor: grabbing; /* Change cursor while dragging */
+}
+
+/* Ensure all images have a consistent 4:5 aspect ratio */
+.gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 4 / 5; /* Modern browsers will use this */
+}
+
+/* Full height landing container */
+.landing__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+#landing__image {
+    max-width: 100%;
+    height: auto;
+}
