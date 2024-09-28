@@ -6,15 +6,101 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <title>Found Objects&#8482; - Contacts</title>
+    <title>Found Objects&#8482;</title>
     <style>
-        img {
-            width: 50%;
-            height: auto;
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column; /* Allow stacking of elements */
+            justify-content: center;
+            align-items: center;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000000; /* Background color set to black */
+            color: #ffffff; /* Text color set to white */
+        }
+
+        .nav__container {
+            text-align: center;
+        }
+
+        #nav__header-image {
+            width: auto; 
+            height: 80px; /* Set the image height */
+            margin-bottom: 0px; /* Adds some space between the image and the links */
+        }
+
+        .nav__options-one {
+            display: flex;
+            justify-content: center; /* Center the navigation links */
+            gap: 55px; /* Add space between the links */
+            margin-bottom: 20px; /* Add space between nav links and content */
+        }
+
+        .nav__options-links-1 a {
+            text-decoration: none;
+            color: #ffffff; /* Links color set to white */
+            font-size: 15px; /* Adjust font size */
+        }
+
+        .nav__options-links-1 a:hover {
+            text-decoration: underline;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto; /* Center the form */
+            padding: 20px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 15px; /* Space between fields */
+            align-items: center;
+        }
+
+        .form-container label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            white-space: nowrap; /* Prevent label from breaking into a new line */
+        }
+
+        .form-container input, .form-container textarea {
+            width: 150px;
+            padding: 8px;
+            background-color: #333;
+            border: 1px solid #555;
+            color: white;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .form-container textarea {
+            width: 200px; /* Slightly larger for the message field */
+        }
+
+        .form-container button {
+            padding: 8px 16px;
+            background-color: #555;
+            color: white;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .form-container button:hover {
+            background-color: #777;
         }
     </style>
 </head>
@@ -32,25 +118,37 @@
         </div>
         <div class="nav__options-one">
             <div class="nav__options-links-1">
-                <a style="text-decoration: none; color: #ffffff" href="about.html">About</a>
+                <a href="shop.html">Shop</a>
             </div>
             <div class="nav__options-links-1">
-                <a style="text-decoration: none; color: #ffffff" href="contact.html">Contacts</a>
+                <a href="about.html">About</a>
             </div>
             <div class="nav__options-links-1">
-                <a style="text-decoration: none; color: #ffffff" href="news.html">News</a>
+                <a href="news.html">News</a>
             </div>
         </div>
-    </div>
-    
-    <div class="content">
-        <h1>Contact Us</h1>
-        <p>If you have any questions or need assistance, please reach out to us at:</p>
-        <ul>
-            <li>Email: support@foundobjects.com</li>
-            <li>Phone: (123) 456-7890</li>
-        </ul>
-        <p>We look forward to hearing from you!</p>
+
+        <!-- Contact Form Section -->
+        <div class="form-container">
+            <form action="/submit_contact" method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Question</label>
+                    <textarea id="message" name="message" rows="2" placeholder="Type your message here..." required></textarea>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
