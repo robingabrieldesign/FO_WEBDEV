@@ -1,30 +1,30 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+/* Set body and html background color to black */
 body, html {
     height: 100%;
     width: 100%;
     background-color: #000; /* Black background */
     color: #fff; /* White text by default */
     font-family: Arial, sans-serif;
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* Overlay styling */
+/* Overlay Styling */
 .overlay {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5); /* 50% transparent black */
-    position: absolute;
-    bottom: 0; /* Position the overlay at the bottom */
-    width: 100%;
-    padding: 20px;
-    z-index: 1000; /* Ensure it appears over the gallery */
+    background-color: rgba(0, 0, 0, 0.7); /* 50% transparent black */
+    position: absolute; /* Position it relative to its container */
+    bottom: 0; /* Move it to the bottom of the container */
+    left: 0;
+    width: 100%; /* Make it full width */
+    padding: 10px 20px;
+    z-index: 100;
+    box-sizing: border-box; /* Ensure padding doesn't affect layout */
 }
 
+/* Logo container and logo */
 .logo-container {
     flex: 1;
 }
@@ -33,29 +33,42 @@ body, html {
     height: 50px;
 }
 
+/* Navigation container */
 .nav-container {
-    flex: 1;
+    flex: 2;
     text-align: right;
 }
 
+/* Navigation list styling */
 .nav-list {
     list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px; /* Space between each navigation link */
+    margin: 0;
+    padding: 0;
 }
 
 .nav-list li {
     display: inline-block;
-    margin-left: 20px;
 }
 
 .nav-list a {
     text-decoration: none;
-    color: #fff; /* Keep links white */
-    font-size: 18px;
+    color: #fff; /* White text for navigation links */
+    font-size: 12px; /* Slightly larger font size for visibility */
     font-weight: bold;
+    transition: color 0.3s ease-in-out; /* Smooth hover transition */
+    padding: 5px 10px; /* Add padding around the links */
 }
 
 .nav-list a:hover {
-    text-decoration: underline; /* Hover effect for links */
+    color: #ddd; /* Lighter gray on hover */
+}
+
+/* Disable scrolling when interacting with the overlay */
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Gallery styling */
@@ -65,39 +78,88 @@ body, html {
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    padding-bottom: 100px; /* Add space at the bottom for the overlay */
+    padding: 0; /* Adjust padding for mobile */
+    background-color: #000; /* Ensure black background for gallery */
 }
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Start with 2 columns on load */
+    grid-template-columns: repeat(2, 1fr); /* Start with 2 columns */
     gap: 10px;
-    transition: all 0.3s ease-in-out;
-    overflow-x: auto; /* Allow horizontal scroll */
-    cursor: grab; /* Change cursor on hover */
+    transition: all 0.5s ease-in-out; /* Speed up the transition */
+    overflow-x: auto;
+    cursor: grab;
+    background-color: #000; /* Black background for gallery */
 }
 
 .gallery:active {
-    cursor: grabbing; /* Change cursor while dragging */
+    cursor: grabbing;
 }
 
-/* Ensure all images have a consistent 4:5 aspect ratio */
 .gallery img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    aspect-ratio: 4 / 5; /* Modern browsers will use this */
+    aspect-ratio: 4 / 5;
 }
 
-/* Full height landing container */
+/* Adjustments for mobile */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* Maintain 2 columns */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: repeat(1, 1fr); /* Stack on small screens */
+    }
+}
+
+/* Center the image within its container */
 .landing__container {
+    display: flex;
+    justify-content: center; /* Horizontally centers the image */
+    align-items: center; /* Vertically centers the image */
+    height: 100vh; /* Full viewport height */
+}
+  
+/* Style the image */
+#landing__image {
+    max-width: 100%; /* Adjust the size, you can set this to a desired percentage */
+    height: center; /* Maintains aspect ratio */
+}
+  
+/* Contact Form background (if needed) */
+.form-container {
+    background-color: #000; /* Black background for forms */
+    color: #fff; /* White text in the form */
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #fff; /* White border for contrast */
+}
+
+.video-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
+    height: calc(95vh - 100px); /* Height relative to viewport */
+    padding: 20px;
+    position: relative;
 }
 
-#landing__image {
-    max-width: 100%;
-    height: auto;
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

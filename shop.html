@@ -1,131 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Found Objects&#8482;</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Shop</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body, html {
-            margin: 0;
-            padding: 0;
             height: 100%;
+            width: 100%;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow-y: scroll;
+            margin: 0;
+        }
+
+        ::-webkit-scrollbar {
+            background-color: #000;
+        }
+
+        /* Gallery styling */
+        .gallery-container {
             display: flex;
-            flex-direction: column; /* Allow stacking of elements */
             justify-content: center;
             align-items: center;
-            font-family: 'Roboto', sans-serif;
-            background-color: #000000; /* Background color set to black */
-            color: #ffffff; /* Text color set to white */
-        }
-
-        .nav__container {
-            text-align: center;
-        }
-
-        #nav__header-image {
-            width: auto; 
-            height: 80px; /* Set the image height */
-            margin-bottom: 0px; /* Adds some space between the image and the links */
-        }
-
-        .nav__options-one {
-            display: flex;
-            justify-content: center; /* Center the navigation links */
-            gap: 55px; /* Add space between the links */
-            margin-bottom: 20px; /* Add space between nav links and content */
-        }
-
-        .nav__options-links-1 a {
-            text-decoration: none;
-            color: #ffffff; /* Links color set to white */
-            font-size: 15px; /* Adjust font size */
-        }
-
-        .nav__options-links-1 a:hover {
-            text-decoration: underline;
-        }
-
-        .form-container {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto; /* Center the form */
+            height: calc(95vh - 100px);
             padding: 20px;
         }
 
-        .form-container form {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            gap: 15px; /* Space between fields */
-            align-items: center;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            max-height: 80vh;
+            width: 80vw;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        .form-container label {
-            font-size: 14px;
-            margin-bottom: 5px;
-            white-space: nowrap; /* Prevent label from breaking into a new line */
-        }
-
-        .form-container input, .form-container textarea {
-            width: 150px;
-            padding: 8px;
-            background-color: #333;
-            border: 1px solid #555;
-            color: white;
-            font-size: 12px;
-            border-radius: 4px;
-        }
-
-        .form-container textarea {
-            width: 200px; /* Slightly larger for the message field */
-        }
-
-        .form-container button {
-            padding: 8px 16px;
-            background-color: #555;
-            color: white;
-            border: none;
-            font-size: 14px;
+        .gallery img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            aspect-ratio: 4 / 5;
             cursor: pointer;
-            border-radius: 4px;
+            transition: transform 0.3s ease;
         }
 
-        .form-container button:hover {
-            background-color: #777;
+        .gallery img:hover {
+            transform: scale(1.05);
         }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Media Queries for Responsiveness */
+
+        /* Mobile view */
+        @media screen and (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr); /* Change to 1 column on small screens */
+            }
+
+            .gallery img {
+                aspect-ratio: 4 / 5;
+            }
+        }
+
+        /* Desktop large screens */
+        @media screen and (min-width: 1200px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for larger screens */
+            }
+        }
+
     </style>
 </head>
 <body>
-    <div class="nav__container">
-        <div class="nav__header">
-            <!-- Wrap the image inside an anchor tag to link to nav.html -->
-            <a href="nav.html">
-                <img
-                    id="nav__header-image"
-                    alt="Found Objects&#8482;"
-                    src="https://freight.cargo.site/w/580/h/200/i/R1970100440975245778239250227886/found_boxlogo.jpeg"
-                />
-            </a>
-        </div>
-        <div class="nav__options-one">
-            <div class="nav__options-links-1">
-                <a href="shop.html">Contact</a>
-            </div>
-            <div class="nav__options-links-1">
-                <a href="about.html">About</a>
-            </div>
-            <div class="nav__options-links-1">
-                <a href="news.html">News</a>
-            </div>
-        </div>
+
+    <!-- Photo Gallery -->
+<div class="gallery-container">
+    <div class="gallery">
+       
+    
+                <img src="FOUNDOBJECTSONLINE/MERCHANDISE/LSFRONT_2100x.png" alt="Shop">
+                <img src="FOUNDOBJECTSONLINE/MERCHANDISE/SSFRONT_2100x.png" alt="Shop">
+                <img src="FOUNDOBJECTSONLINE/MERCHANDISE/F.O-_0000_Cap.jpeg" alt="Shop">
+                <img src="FOUNDOBJECTSONLINE/MERCHANDISE/HOWTOBACK_2100x.png" alt="Shop">
+                <img src="FOUNDOBJECTSONLINE/SHOP CLOTHES/USM/USM HALLER TOOL CHEST/MatthewYoscary-677.jpg" alt="Shop">
+                <img src="FOUNDOBJECTSONLINE/SHOP CLOTHES/USM/Found Objects Key Chain/MatthewYoscary-01.jpg" alt="Shop">
+                <img src="FOUNDOBJECTSONLINE/SHOP CLOTHES/USM/Found Objects Key Chain/MatthewYoscary-12.jpg" alt="Shop">
+                <img src="FOUNDOBJECTSONLINE/SHOP CLOTHES/Cowboy/FoundOb-LStee_OliveCap-_0005_front_860x.jpg" alt="Shop">
+                <img src="FOUNDOBJECTSONLINE/SHOP CLOTHES/Cowboy/FoundOb-LStee_OliveCap-_0000_front_860x.jpg" alt="Shop">
+                <img src="FOUNDOBJECTSONLINE/SHOP CLOTHES/Cowboy/tirecover1_1600x.png" alt="Shop">
+            
+
+         
+  
+    </div>
+ </div>
+ 
+ 
+ 
+ 
+       
+
+<!-- Overlay with transparent background and logo -->
+<div class="overlay">
+    <div class="logo-container">
+        <a href="nav.html">
+            <img src="https://freight.cargo.site/t/original/i/R1970100440975245778239250227886/found_boxlogo.jpeg" alt="Found Objects Logo" class="logo">
+        </a>
+    </div>
+    <div class="nav-container">
+        <ul class="nav-list">
+            <li><a href="nav.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="news.html">News</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Modal for full photo view -->
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage" alt="Full Image">
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const closeButton = document.querySelector('.close');
+    modal.style.display = 'none';
+    // Event listener for each gallery image
+    galleryImages.forEach((img) => {
+        img.addEventListener('click', () => {
+            modal.style.display = 'flex'; // Show modal when image is clicked
+            modalImage.src = img.src; // Set the modal image to the clicked image
+        });
+    });
+
+    // Close the modal when clicking on the close button
+    closeButton.addEventListener('click', () => {
+        modal.style.display = 'none'; // Hide the modal
+    });
+
+    // Close the modal when clicking outside the modal content
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none'; // Hide the modal
+        }
+    });
+});
+</script>
+
+
+
 </body>
 </html>

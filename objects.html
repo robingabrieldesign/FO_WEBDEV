@@ -1,49 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Found Objects&#8482; - Contacts</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Objects</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        img {
-            width: 50%;
+        /* Family Photos Specific Styles */
+        body, html {
+            height: 100%;
+            width: 100%;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text by default */
+            font-family: Arial, sans-serif;
+            overflow-y: scroll; /* Enable vertical scroll for the page */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            background-color: #000;
+        }
+
+        /* Gallery styling */
+        .gallery-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(95vh - 100px); /* Calculate height based on viewport */
+            padding: 20px; /* Add some padding */
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 10px;
+            max-height: 80vh; /* Limit height of gallery */
+            width: 80vw; /* Set a fixed width for the gallery */
+            max-width: 1200px; /* Max width for larger screens */
+            margin: 0 auto; /* Center the gallery */
+            padding: 20px; /* Add padding around the gallery */
+        }
+
+        .gallery img {
+            width: 100%;
             height: auto;
+            object-fit: cover;
+            aspect-ratio: 4 / 5;
+            cursor: pointer; /* Show pointer on hover */
+            transition: transform 0.3s ease; /* Add zoom effect on hover */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05); /* Zoom in on hover */
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+            overflow: auto; /* Enable scroll if needed */
+            justify-content: center; /* Center the content horizontally */
+            align-items: center; /* Center the content vertically */
+            display: flex; /* Use flexbox for centering */
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="nav__container">
-        <div class="nav__header">
-            <!-- Wrap the image inside an anchor tag to link to nav.html -->
-            <a href="nav.html">
-                <img
-                    id="nav__header-image"
-                    alt="Found Objects&#8482;"
-                    src="https://freight.cargo.site/w/580/h/200/i/R1970100440975245778239250227886/found_boxlogo.jpeg"
-                />
-            </a>
-        </div>
-        <div class="nav__options-one">
-            <div class="nav__options-links-1">
-                <a style="text-decoration: none; color: #ffffff" href="about.html">About</a>
-            </div>
-            <div class="nav__options-links-1">
-                <a style="text-decoration: none; color: #ffffff" href="contact.html">Contacts</a>
-            </div>
-            <div class="nav__options-links-1">
-                <a style="text-decoration: none; color: #ffffff" href="news.html">News</a>
-            </div>
-        </div>
-    </div>
+
+<!-- Photo Gallery -->
+<div class="gallery-container">
+    <div class="gallery">
+   <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1523_-_Web_Use-2.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1586_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1595_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1610_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1539_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1531_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1536_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1557_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1512_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1541_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1582_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1601_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1575_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1576_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1613_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1630_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1627_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1574_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1604_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1667_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1618_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1538_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1663_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1632_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1634_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1562_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1661_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1660_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1655_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1658_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1662_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1648_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1652_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1650_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1684_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1564_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1676_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1641_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1668_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1549_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1732_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1608_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1523_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1556_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1559_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1596_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1625_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1495_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1534_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1514_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1519_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1510_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1629_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1507_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1489_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1490_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1503_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1494_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1498_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1505_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1491_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1528_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1526_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1504_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1522_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1631_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1477_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1483_-_Web_Use.jpg" alt="Objects">
+       <img src="FOUNDOBJECTSONLINE/Archive Images References/Objects/220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects_-_Shelby_Moore_-_220628_-_Blake_Quinn_-_Found_Objects_-_FO_Objects1683_-_Web_Use.jpg" alt="Objects">
     
-    <div class="content">
+
     </div>
+</div>
+
+<!-- Overlay with transparent background and logo -->
+<div class="overlay">
+    <div class="logo-container">
+        <a href="nav.html">
+            <img src="https://freight.cargo.site/t/original/i/R1970100440975245778239250227886/found_boxlogo.jpeg" alt="Found Objects Logo" class="logo">
+        </a>
+    </div>
+    <div class="nav-container">
+        <ul class="nav-list">
+            <li><a href="nav.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="news.html">News</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="loading-screen">
+    <img src="https://freight.cargo.site/t/original/i/R1970100440975245778239250227886/found_boxlogo.jpeg" alt="Loading logo" class="loading-logo">
+</div>
+
+
+<!-- Modal for full photo view -->
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage" alt="Full Image">
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const closeButton = document.querySelector('.close');
+    modal.style.display = 'none';
+
+    // Event listener for each gallery image
+    galleryImages.forEach((img) => {
+        img.addEventListener('click', () => {
+            modal.style.display = 'flex'; // Show modal when image is clicked
+            modalImage.src = img.src; // Set the modal image to the clicked image
+        });
+    });
+
+    // Close the modal when clicking on the close button
+    closeButton.addEventListener('click', () => {
+        modal.style.display = 'none'; // Hide the modal
+    });
+
+    // Close the modal when clicking outside the modal content
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none'; // Hide the modal
+        }
+    });
+});
+</script>
+
 </body>
 </html>
+
+

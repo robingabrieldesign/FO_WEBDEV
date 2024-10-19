@@ -1,113 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Found Objects&#8482;</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>About</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS -->
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column; /* Allow stacking of elements */
-            justify-content: center;
-            align-items: center;
-            font-family: 'Roboto', sans-serif;
-            background-color: #000000; /* Background color set to black */
-            color: #ffffff; /* Text color set to white */
-        }
-
-        .nav__container {
-            text-align: center;
-        }
-
-        #nav__header-image {
-            width: auto; 
-            height: 80px; /* Set the image height to 25px */
-            margin-bottom: 0px; /* Adds some space between the image and the links */
-        }
-
-        .nav__options-one {
-            display: flex;
-<<<<<<< Updated upstream
-            justify-content: flex-start; /* Align the links to the left */
-            gap: 55px; /* Add space between the links */
-=======
-            justify-content: center; /* Center the navigation links */
-            gap: 55px; /* Add space between the links */
-            margin-bottom: 20px; /* Add space between nav links and video */
->>>>>>> Stashed changes
-        }
-
-        .nav__options-links-1 a {
-            text-decoration: none;
-            color: #ffffff; /* Links color set to white */
-            font-size: 15px; /* Adjust font size */
-        }
-
-        .nav__options-links-1 a:hover {
-            text-decoration: underline;
-        }
-
+        /* Resizing the video container and iframe */
         .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* Aspect ratio 16:9 */
-            height: 0;
-            overflow: hidden;
-            width: 100%;
-            max-width: 960px; /* Set max width of the video (bigger frame) */
-            margin: 0 auto; /* Center the video */
+            width: 100vw; /* Full width of the viewport */
+            height: 100vh; /* Full height of the viewport */
+            display: flex; /* Use flexbox to center content */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            background-color: #000; /* Background to highlight video */
+            overflow: hidden; /* Prevent overflow */
         }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        .video {
+            width: 90vw; /* Width of video for larger screens */
+            height: 90vh; /* Height of video for larger screens */
+            max-width: 100%; /* Ensure it doesn't overflow on small screens */
+            max-height: 100%; /* Ensure it doesn't overflow on small screens */
+        }
+
+        /* Responsive adjustments for mobile */
+        @media screen and (max-width: 700px) {
+            .video {
+                width: 95vw; /* Wider width on mobile */
+                height: auto; /* Auto height to maintain aspect ratio */
+                max-height: 90vh; /* Limit height to prevent overflow */
+                position: fixed; /* Positioning to center */
+                top: 50%; /* Center vertically */
+                left: 50%; /* Center horizontally */
+                transform: translate(-50%, -50%); /* Translate to center */
+            }
         }
     </style>
 </head>
 <body>
-    <div class="nav__container">
-        <div class="nav__header">
-            <!-- Wrap the image inside an anchor tag to link to nav.html -->
-            <a href="nav.html">
-                <img
-                    id="nav__header-image"
-                    alt="Found Objects&#8482;"
-                    src="https://freight.cargo.site/w/580/h/200/i/R1970100440975245778239250227886/found_boxlogo.jpeg"
-                />
-            </a>
-        </div>
-        <div class="nav__options-one">
-            <div class="nav__options-links-1">
-                <a href="shop.html">Shop</a>
-            </div>
-            <div class="nav__options-links-1">
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="nav__options-links-1">
-                <a href="news.html">News</a>
-            </div>
-        </div>
 
-        <!-- Video Embed Section -->
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/HQeZFYwfQDA?autoplay=1&controls=0&modestbranding=1&rel=0" 
-                frameborder="0" 
-                allow="autoplay; encrypted-media" 
-                allowfullscreen>
-            </iframe>
-        </div>
+<!-- Video Section -->
+<div class="video-container">
+    <iframe class="video" 
+        src="https://player.vimeo.com/video/1019038967?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&unmuted=1&controls=1&title=0&byline=0&portrait=0"
+        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
+    </iframe>
+</div>
+
+<!-- Overlay with logo and navigation -->
+<div class="overlay">
+    <div class="logo-container">
+        <a href="nav.html">
+            <img src="https://freight.cargo.site/t/original/i/R1970100440975245778239250227886/found_boxlogo.jpeg" alt="Found Objects Logo" class="logo">
+        </a>
     </div>
+    <div class="nav-container">
+        <ul class="nav-list">
+            <li><a href="nav.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="news.html">News</a></li>
+        </ul>
+    </div>
+</div>
+
 </body>
 </html>

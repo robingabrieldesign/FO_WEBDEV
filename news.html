@@ -1,77 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Found Objects&#8482;</title>
-    <style>
-      body, html {
-          margin: 0;
-          padding: 0;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          font-family: 'Roboto', sans-serif;
-          background-color: #000000;
-          color: #ffffff;
-      }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>News</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-      .nav__container {
-          text-align: center;
-      }
-
-      #nav__header-image {
-          width: auto; 
-          height: 80px;
-          margin-bottom: 0px;
-      }
-
-      .nav__options-one {
-          display: flex;
-          justify-content: center;
-          gap: 55px;
-          margin-bottom: 20px;
-      }
-
-      .nav__options-links-1 a {
-          text-decoration: none;
-          color: #ffffff;
-          font-size: 15px;
-      }
-
-      .nav__options-links-1 a:hover {
-          text-decoration: underline;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="nav__container">
-      <div class="nav__header">
-        <!-- Wrap the image inside an anchor tag to link to nav.html -->
+<!-- Overlay with transparent background and logo -->
+<div class="overlay">
+    <div class="logo-container">
         <a href="nav.html">
-          <img
-            id="nav__header-image"
-            alt="Found Objects&#8482;"
-            src="https://freight.cargo.site/w/580/h/200/i/R1970100440975245778239250227886/found_boxlogo.jpeg"
-          />
+            <img src="https://freight.cargo.site/t/original/i/R1970100440975245778239250227886/found_boxlogo.jpeg" alt="Found Objects Logo" class="logo">
         </a>
-      </div>
-
-      <div class="nav__options-one">
-        <div class="nav__options-links-1">
-          <a href="shop.html">Shop</a> <!-- Changed from News to Shop -->
-        </div>
-        <div class="nav__options-links-1">
-          <a href="about.html">About</a>
-        </div>
-        <div class="nav__options-links-1">
-          <a href="contact.html">Contact</a>
-        </div>
-      </div>
     </div>
-  </body>
+    <div class="nav-container">
+        <ul class="nav-list">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Centered text -->
+<p class="center-text">No news is good news</p>
+
+<!-- Center the text with CSS -->
+<style>
+  body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column; /* Make the body a column flex container */
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+  }
+
+  .center-text {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px; /* Add some space above the text */
+  }
+</style>
+
+<script src="nav.js"></script>
+</body>
 </html>
