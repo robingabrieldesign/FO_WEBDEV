@@ -22,6 +22,8 @@ body, html {
     padding: 10px 20px;
     z-index: 100;
     box-sizing: border-box; /* Ensure padding doesn't affect layout */
+    height: 60px; /* Shrink overlay height for consistency */
+    overflow: hidden; /* Prevent content overflow */
 }
 
 /* Logo container and logo */
@@ -30,7 +32,7 @@ body, html {
 }
 
 .logo {
-    height: 50px;
+    height: 40px; /* Adjust logo size for mobile */
 }
 
 /* Navigation container */
@@ -44,7 +46,7 @@ body, html {
     list-style-type: none;
     display: flex;
     justify-content: flex-end;
-    gap: 30px; /* Space between each navigation link */
+    gap: 20px; /* Space between each navigation link */
     margin: 0;
     padding: 0;
 }
@@ -56,7 +58,7 @@ body, html {
 .nav-list a {
     text-decoration: none;
     color: #fff; /* White text for navigation links */
-    font-size: 12px; /* Slightly larger font size for visibility */
+    font-size: 12px; /* Font size for desktop */
     font-weight: bold;
     transition: color 0.3s ease-in-out; /* Smooth hover transition */
     padding: 5px 10px; /* Add padding around the links */
@@ -69,6 +71,27 @@ body, html {
 /* Disable scrolling when interacting with the overlay */
 body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Adjustments for mobile to keep the layout flat */
+@media (max-width: 768px) {
+    .overlay {
+        height: 50px; /* Further shrink overlay height for mobile */
+        padding: 5px 10px; /* Reduce padding */
+    }
+
+    .logo {
+        height: 30px; /* Shrink logo size for smaller screens */
+    }
+
+    .nav-list {
+        gap: 10px; /* Reduce gap between nav links */
+    }
+
+    .nav-list a {
+        font-size: 10px; /* Smaller font size for mobile */
+        padding: 3px 5px; /* Reduce padding for mobile */
+    }
 }
 
 /* Gallery styling */
