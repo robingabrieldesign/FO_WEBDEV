@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="product-page">
+        <!-- Left Side: Slideshow Grid -->
+        <div class="product-images">
+            <div class="slideshow-container">
+                <!-- Slideshow images will go here -->
+                <div class="mySlides fade">
+                    <img src="image1.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="image2.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="image3.jpg" style="width:100%">
+                </div>
+
+                <!-- Next and Previous controls -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+            <!-- Thumbnail grid -->
+            <div class="row">
+                <div class="column">
+                    <img class="demo" src="image1_thumb.jpg" onclick="currentSlide(1)" alt="Product Image 1">
+                </div>
+                <div class="column">
+                    <img class="demo" src="image2_thumb.jpg" onclick="currentSlide(2)" alt="Product Image 2">
+                </div>
+                <div class="column">
+                    <img class="demo" src="image3_thumb.jpg" onclick="currentSlide(3)" alt="Product Image 3">
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Product Info -->
+        <div class="product-info">
+            <h1 class="product-name">Product Name</h1>
+            <p class="product-material">Material: 100% Cotton</p>
+            <p class="product-info-text">A unique handcrafted item made with high-quality materials.</p>
+
+            <div class="product-sizes">
+                <label for="size">Size:</label>
+                <select id="size" name="size">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+            </div>
+
+            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Overlay Section -->
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <p>Overlay content here.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
