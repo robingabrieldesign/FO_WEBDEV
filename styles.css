@@ -2,11 +2,14 @@
 body, html {
     height: 100%;
     width: 100%;
-    background-color: #000; /* Black background */
-    color: #fff; /* White text by default */
+    background-color: #000;
+    /* Black background */
+    color: #fff;
+    /* White text by default */
     font-family: Arial, sans-serif;
     margin: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
 }
 
 /* Overlay Styling */
@@ -14,16 +17,23 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.7); /* 50% transparent black */
-    position: absolute; /* Position it relative to its container */
-    bottom: 0; /* Move it to the bottom of the container */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* 50% transparent black */
+    position: absolute;
+    /* Position it relative to its container */
+    bottom: 0;
+    /* Move it to the bottom of the container */
     left: 0;
-    width: 100%; /* Make it full width */
+    width: 100%;
+    /* Make it full width */
     padding: 10px 20px;
     z-index: 100;
-    box-sizing: border-box; /* Ensure padding doesn't affect layout */
-    height: 60px; /* Shrink overlay height for consistency */
-    overflow: hidden; /* Prevent content overflow */
+    box-sizing: border-box;
+    /* Ensure padding doesn't affect layout */
+    height: 60px;
+    /* Shrink overlay height for consistency */
+    overflow: hidden;
+    /* Prevent content overflow */
 }
 
 /* Logo container and logo */
@@ -32,7 +42,8 @@ body, html {
 }
 
 .logo {
-    height: 40px; /* Adjust logo size for mobile */
+    height: 40px;
+    /* Adjust logo size for mobile */
 }
 
 /* Navigation container */
@@ -46,7 +57,8 @@ body, html {
     list-style-type: none;
     display: flex;
     justify-content: flex-end;
-    gap: 20px; /* Space between each navigation link */
+    gap: 20px;
+    /* Space between each navigation link */
     margin: 0;
     padding: 0;
 }
@@ -57,40 +69,52 @@ body, html {
 
 .nav-list a {
     text-decoration: none;
-    color: #fff; /* White text for navigation links */
-    font-size: 12px; /* Font size for desktop */
+    color: #fff;
+    /* White text for navigation links */
+    font-size: 12px;
+    /* Font size for desktop */
     font-weight: bold;
-    transition: color 0.3s ease-in-out; /* Smooth hover transition */
-    padding: 5px 10px; /* Add padding around the links */
+    transition: color 0.3s ease-in-out;
+    /* Smooth hover transition */
+    padding: 5px 10px;
+    /* Add padding around the links */
 }
 
 .nav-list a:hover {
-    color: #ddd; /* Lighter gray on hover */
+    color: #ddd;
+    /* Lighter gray on hover */
 }
 
 /* Disable scrolling when interacting with the overlay */
 body {
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
 }
 
 /* Adjustments for mobile to keep the layout flat */
 @media (max-width: 768px) {
     .overlay {
-        height: 50px; /* Further shrink overlay height for mobile */
-        padding: 5px 10px; /* Reduce padding */
+        height: 50px;
+        /* Further shrink overlay height for mobile */
+        padding: 5px 10px;
+        /* Reduce padding */
     }
 
     .logo {
-        height: 30px; /* Shrink logo size for smaller screens */
+        height: 30px;
+        /* Shrink logo size for smaller screens */
     }
 
     .nav-list {
-        gap: 10px; /* Reduce gap between nav links */
+        gap: 10px;
+        /* Reduce gap between nav links */
     }
 
     .nav-list a {
-        font-size: 10px; /* Smaller font size for mobile */
-        padding: 3px 5px; /* Reduce padding for mobile */
+        font-size: 10px;
+        /* Smaller font size for mobile */
+        padding: 3px 5px;
+        /* Reduce padding for mobile */
     }
 }
 
@@ -101,18 +125,23 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    padding: 0; /* Adjust padding for mobile */
-    background-color: #000; /* Ensure black background for gallery */
+    padding: 0;
+    /* Adjust padding for mobile */
+    background-color: #000;
+    /* Ensure black background for gallery */
 }
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Start with 2 columns */
+    grid-template-columns: repeat(2, 1fr);
+    /* Start with 2 columns */
     gap: 10px;
-    transition: all 0.5s ease-in-out; /* Speed up the transition */
+    transition: all 0.5s ease-in-out;
+    /* Speed up the transition */
     overflow-x: auto;
     cursor: grab;
-    background-color: #000; /* Black background for gallery */
+    background-color: #000;
+    /* Black background for gallery */
 }
 
 .gallery:active {
@@ -129,44 +158,72 @@ body {
 /* Adjustments for mobile */
 @media (max-width: 768px) {
     .gallery {
-        grid-template-columns: repeat(2, 1fr); /* Maintain 2 columns */
+        grid-template-columns: repeat(2, 1fr);
+        /* Maintain 2 columns */
     }
 }
 
 @media (max-width: 480px) {
     .gallery {
-        grid-template-columns: repeat(1, 1fr); /* Stack on small screens */
+        grid-template-columns: repeat(1, 1fr);
+        /* Stack on small screens */
     }
 }
 
 /* Center the image within its container */
 .landing__container {
     display: flex;
-    justify-content: center; /* Horizontally centers the image */
-    align-items: center; /* Vertically centers the image */
-    height: 100vh; /* Full viewport height */
+    justify-content: center;
+    /* Horizontally centers the image */
+    align-items: center;
+    /* Vertically centers the image */
+    height: 100vh;
+    /* Full viewport height */
+    padding: 0 30px;
 }
-  
+
 /* Style the image */
 #landing__image {
-    max-width: 100%; /* Adjust the size, you can set this to a desired percentage */
-    height: center; /* Maintains aspect ratio */
+    max-width: 100%;
+    /* Adjust the size, you can set this to a desired percentage */
+    height: center;
+    /* Maintains aspect ratio */
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 1.25s;
 }
-  
+
+/* Keyframes for Landing page image */
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 /* Contact Form background (if needed) */
 .form-container {
-    background-color: #000; /* Black background for forms */
-    color: #fff; /* White text in the form */
+    background-color: #000;
+    /* Black background for forms */
+    color: #fff;
+    /* White text in the form */
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid #fff; /* White border for contrast */
+    border: 1px solid #fff;
+    /* White border for contrast */
 }
 
 .video-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(95vh - 100px); /* Height relative to viewport */
+    height: calc(95vh - 100px);
+    /* Height relative to viewport */
     padding: 20px;
     position: relative;
 }
@@ -175,7 +232,8 @@ body {
     position: relative;
     width: 100%;
     max-width: 1200px;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
     height: 0;
 }
 
