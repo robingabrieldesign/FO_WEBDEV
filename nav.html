@@ -19,13 +19,26 @@
     <div class="nav-container">
         <ul class="nav-list">
             <li><a href="shop.html">Shop</a></li>
-            <li><a href="About.html">About</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="news.html">News</a></li>
         </ul>
     </div>
 </div>
 
+
+<!-- Gallery with zoom and drag functionality -->
+<div id="gallery-container">
+    <div id="gallery" class="gallery-grid">
+        <!-- Images will be dynamically added and randomized with JavaScript -->
+    </div>
+
+    <!-- Zoom buttons -->
+    <div class="zoom-controls">
+        <button id="zoom-out">-</button>
+        <button id="zoom-in">+</button>
+    </div>
+</div>
 <!-- Photo Gallery -->
 <div class="gallery-container">
     <div class="gallery">
@@ -91,26 +104,26 @@
     <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/675496F8-0669-4810-AC29-61B7F6CD17E0.jpg" alt="Photo Diary"></a>
     <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_3273.jpg" alt="Photo Diary"></a>
     <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_4541_2048x2048.jpg" alt="Photo Diary"></a>
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/3B6EE138-518F-4D19-8F74-162792402B9F.jpg" alt="photodiary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_5119.jpg" alt="photodiary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/61697064921__490471F0-FC67-4E60-830C-540AD5EE8BE4.jpg" alt="photodiary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_7184_2048x2048.jpg" alt="Photodiary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_7065_2048x2048.jpg" alt="photodiary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_7031_2048x2048.jpg" alt="photodiary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_6486_2048x2048.jpg" alt="photodiary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_4506_2048x2048.jpg" alt="photodiary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_4951_2048x2048.jpg" alt="photodiary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_5167_2048x2048.jpg" alt="photodiary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_5431_2048x2048.jpg" alt="Photo Diary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_5502_2048x2048.jpg" alt="Photo Diary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG-2873_2048x2048.jpg" alt="Photo Diary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/File_025_b96e06ee-3a29-426b-840e-4b69b9ceb7da_2048x2048.jpg" alt="Photo Diary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/File_058_1ec15b84-739c-4653-8c1a-c02f7c07a65c_2048x2048.jpg" alt="Photo Diary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/0-8_2048x2048.jpg" alt="Photo Diary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/0-13_2048x2048.jpg" alt="Photo Diary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_3650_29089416-068e-43c3-a7f8-e8dc38dd2582_2048x2048.jpg" alt="Photo Diary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_4771_2048x2048.jpg" alt="Photo Diary"></a> 
-    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_4656_2048x2048.jpg" alt="Photo Diary"></a> 
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/3B6EE138-518F-4D19-8F74-162792402B9F.jpg" alt="photodiary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_5119.jpg" alt="photodiary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/61697064921__490471F0-FC67-4E60-830C-540AD5EE8BE4.jpg" alt="photodiary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_7184_2048x2048.jpg" alt="Photodiary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_7065_2048x2048.jpg" alt="photodiary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_7031_2048x2048.jpg" alt="photodiary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_6486_2048x2048.jpg" alt="photodiary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_4506_2048x2048.jpg" alt="photodiary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_4951_2048x2048.jpg" alt="photodiary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_5167_2048x2048.jpg" alt="photodiary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_5431_2048x2048.jpg" alt="Photo Diary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_5502_2048x2048.jpg" alt="Photo Diary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG-2873_2048x2048.jpg" alt="Photo Diary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/File_025_b96e06ee-3a29-426b-840e-4b69b9ceb7da_2048x2048.jpg" alt="Photo Diary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/File_058_1ec15b84-739c-4653-8c1a-c02f7c07a65c_2048x2048.jpg" alt="Photo Diary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/0-8_2048x2048.jpg" alt="Photo Diary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/0-13_2048x2048.jpg" alt="Photo Diary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_3650_29089416-068e-43c3-a7f8-e8dc38dd2582_2048x2048.jpg" alt="Photo Diary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_4771_2048x2048.jpg" alt="Photo Diary"></a>
+    <a href="photodiary.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Photo Diary/IMG_4656_2048x2048.jpg" alt="Photo Diary"></a>
     <a href="familyphotos.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Family Photos/IMG_8923_480x480.jpg" alt="Family Photos"></a>
     <a href="familyphotos.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Family Photos/IMG_8922_480x480.jpg" alt="Family Photos"></a>
     <a href="familyphotos.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Family Photos/IMG_8914_480x480.jpg" alt="Family Photos"></a>
@@ -146,10 +159,9 @@
     <a href="cararchive.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Car Archive/IMG_6670_2048x2048.jpg" alt="Car Archive"></a>
     <a href="cararchive.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Car Archive/IMG_2727_2048x2048.jpg" alt="Car Archive"></a>
     <a href="cararchive.html"><img src="FOUNDOBJECTSONLINE/Archive Images References/Car Archive/IMG_7947_2048x2048.jpg" alt="Car Archive"></a>
-    
+   
+ 
+ 
 
-    </div>
-</div>
 <script src="nav.js"></script>
-</body>
-</html>
+<script>
