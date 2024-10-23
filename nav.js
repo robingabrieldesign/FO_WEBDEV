@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let startX, startY, scrollLeft, scrollTop;
     let currentZoomLevel = 2; // Default zoom level
 
+    // Function to shuffle images
+    function shuffleGallery() {
+        const images = Array.from(gallery.children);
+        const shuffledImages = images.sort(() => Math.random() - 0.5); // Randomize order
+        gallery.innerHTML = ''; // Clear the gallery
+        shuffledImages.forEach(img => gallery.appendChild(img)); // Append images in random order
+    }
+
     // Function to adjust the grid based on zoom level
     function adjustGrid() {
         gallery.style.gridTemplateColumns = `repeat(${currentZoomLevel}, 1fr)`;
@@ -54,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gallery.scrollTop = scrollTop - walkY;
     });
 
-    // Initialize the gallery
+    // Initialize the gallery with shuffled images
+    shuffleGallery();
     adjustGrid();
 });
