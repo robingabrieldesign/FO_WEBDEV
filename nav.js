@@ -1,199 +1,143 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const gallery = document.querySelector('.gallery');
-    let isDragging = false;
-    let startX, startY, scrollLeft, scrollTop;
-    let currentZoomLevel = 2; // Default zoom level
+  const galleryContainer = document.querySelector('.gallery');
+  let isDragging = false;
+  let startX, scrollLeft, startY, scrollTop;
+  let currentZoomLevel = 2; // Default zoom level
+  let galleryRect = galleryContainer.getBoundingClientRect(); // Get initial bounding box for zooming calculations
 
-    // Function to shuffle images
-    function shuffleGallery() {
-        const images = Array.from(gallery.children);
-        const shuffledImages = images.sort(() => Math.random() - 0.5); // Randomize order
-        gallery.innerHTML = ''; // Clear the gallery
-        shuffledImages.forEach(img => gallery.appendChild(img)); // Append images in random order
-    }
+  // Page load fade-in
+  document.body.style.opacity = '0';
+  setTimeout(() => {
+      document.body.style.transition = 'opacity 1s ease-in-out';
+      document.body.style.opacity = '1';
+  }, 100);
 
-    // Function to adjust the grid based on zoom level
-    function adjustGrid() {
-        gallery.style.gridTemplateColumns = `repeat(${currentZoomLevel}, 1fr)`;
-    }
+  // Fade out before navigation
+  document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = e.currentTarget.getAttribute('href');
+          document.body.style.opacity = '0';
+          setTimeout(() => {
+              window.location.href = target;
+          }, 500); 
+      });
+  });
 
-    // Zoom in and out functionality
-    document.getElementById('zoom-in').addEventListener('click', () => {
-        if (currentZoomLevel < 15) {
-            currentZoomLevel++;
-            adjustGrid();
-        }
-    });
+  // Handle dragging in the gallery
+  galleryContainer.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.pageX - galleryContainer.offsetLeft;
+      startY = e.pageY - galleryContainer.offsetTop;
+      scrollLeft = galleryContainer.scrollLeft;
+      scrollTop = galleryContainer.scrollTop;
+  });
 
-    document.getElementById('zoom-out').addEventListener('click', () => {
-        if (currentZoomLevel > 2) {
-            currentZoomLevel--;
-            adjustGrid();
-        }
-    });
+  galleryContainer.addEventListener('mouseleave', () => {
+      isDragging = false;
+  });
 
-    // Drag functionality
-    gallery.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.pageX - gallery.offsetLeft;
-        startY = e.pageY - gallery.offsetTop;
-        scrollLeft = gallery.scrollLeft;
-        scrollTop = gallery.scrollTop;
-    });
+  galleryContainer.addEventListener('mouseup', () => {
+      isDragging = false;
+  });
 
-    gallery.addEventListener('mouseleave', () => {
-        isDragging = false;
-    });
+  galleryContainer.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - galleryContainer.offsetLeft;
+      const y = e.pageY - galleryContainer.offsetTop;
+      const walkX = (x - startX) * 3;
+      const walkY = (y - startY) * 3;
+      galleryContainer.scrollLeft = scrollLeft - walkX;
+      galleryContainer.scrollTop = scrollTop - walkY;
+  });
 
-    gallery.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
+  // Zoom in/out buttons
+  const zoomInButton = document.getElementById('zoom-in');
+  const zoomOutButton = document.getElementById('zoom-out');
 
-    gallery.addEventListener('mousemove', (e) => {
-        if (!isDragging) return; // Stop the fn from running
-        e.preventDefault(); // Prevent default behavior
-        const x = e.pageX - gallery.offsetLeft;
-        const y = e.pageY - gallery.offsetTop;
-
-        const walkX = (x - startX) * 2; // Scroll-fast
-        const walkY = (y - startY) * 2;
-
-        gallery.scrollLeft = scrollLeft - walkX;
-        gallery.scrollTop = scrollTop - walkY;
-    });
-
-    // Initialize the gallery with shuffled images
-    shuffleGallery();
-    adjustGrid();
-    document.addEventListener('DOMContentLoaded', () => {
-        const gallery = document.querySelector('.gallery');
-        let isDragging = false;
-        let startX, startY, scrollLeft, scrollTop;
-        let currentZoomLevel = 2; // Default zoom level
-    
-        // Function to shuffle images
-        function shuffleGallery() {
-            const images = Array.from(gallery.children);
-            const shuffledImages = images.sort(() => Math.random() - 0.5); // Randomize order
-            gallery.innerHTML = ''; // Clear the gallery
-            shuffledImages.forEach(img => gallery.appendChild(img)); // Append images in random order
-    
-            // Add loaded class to images after a short delay to trigger transition
-            setTimeout(() => {
-                gallery.querySelectorAll('img').forEach(image => {
-                    image.classList.add('loaded'); // Trigger the fade-in animation
-                });
-            }, 100); // Delay to ensure the DOM updates
-        }
-    
-        // Function to adjust the grid based on zoom level
-        function adjustGrid() {
-            gallery.style.gridTemplateColumns = `repeat(${currentZoomLevel}, 1fr)`;
-        }
-    
-        // Zoom in and out functionality
-        document.getElementById('zoom-in').addEventListener('click', () => {
-            if (currentZoomLevel < 15) {
-                currentZoomLevel++;
-                adjustGrid();
-            }
-        });
-    
-        document.getElementById('zoom-out').addEventListener('click', () => {
-            if (currentZoomLevel > 2) {
-                currentZoomLevel--;
-                adjustGrid();
-            }
-        });
-    
-        // Drag functionality
-        gallery.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.pageX - gallery.offsetLeft;
-            startY = e.pageY - gallery.offsetTop;
-            scrollLeft = gallery.scrollLeft;
-            scrollTop = gallery.scrollTop;
-        });
-    
-        gallery.addEventListener('mouseleave', () => {
-            isDragging = false;
-        });
-    
-        gallery.addEventListener('mouseup', () => {
-            isDragging = false;
-        });
-    
-        gallery.addEventListener('mousemove', (e) => {
-            if (!isDragging) return; // Stop the fn from running
-            e.preventDefault(); // Prevent default behavior
-            const x = e.pageX - gallery.offsetLeft;
-            const y = e.pageY - gallery.offsetTop;
-    
-            const walkX = (x - startX) * 2; // Scroll-fast
-            const walkY = (y - startY) * 2;
-    
-            gallery.scrollLeft = scrollLeft - walkX;
-            gallery.scrollTop = scrollTop - walkY;
-        });
-    
-        // Initialize the gallery with shuffled images
-        shuffleGallery();
-        adjustGrid();
-    });
-    const gallery = document.getElementById("gallery");
-
-    window.onmousemove = (e) => {
-      const mouseX = e.clientX,
-        mouseY = e.clientY;
-
-      const xDecimal = mouseX / window.innerWidth,
-        yDecimal = mouseY / window.innerHeight;
-
-      const maxX = gallery.offsetWidth - window.innerWidth,
-        maxY = gallery.offsetHeight - window.innerHeight;
-
-      const panX = maxX * xDecimal * -1,
-        panY = maxY * yDecimal * -1;
-
-      gallery.animate(
-        {
-          transform: `translate(${panX}px, ${panY}px)`,
-        },
-        {
-          duration: 4000,
-          fill: "forwards",
-          easing: "ease",
-        }
-      );
-    };
-
-    const radius = 300,
-      maxScale = 3,
-      blocks = document.querySelectorAll(".block"),
-      radius2 = radius * radius,
-      container = document.querySelector("#gallery");
-
-    blocks.forEach((block) => {
-      let b = block.getBoundingClientRect();
-      (block.cx = b.left + b.width / 2 + window.pageXOffset),
-        (block.cy = b.top + b.height / 2 + window.pageYOffset);
-
-      block.tween = gsap
-        .to(block, { scale: maxScale, ease: "power1.in", paused: true })
-        .progress(1)
-        .progress(0);
-    });
-
-    document.addEventListener("mousemove", (e) => {
-      let i = blocks.length,
-        dx,
-        dy,
-        block;
-      while (i--) {
-        block = blocks[i];
-        dx = (block.cx - e.pageX) ** 2;
-        dy = (block.cy - e.pageY) ** 2;
-        block.tween.progress(1 - (dx + dy) / radius2);
+  zoomInButton.addEventListener('click', () => {
+      if (currentZoomLevel > 2) {
+          currentZoomLevel--;
+          adjustGrid();
       }
-    });
+  });
+
+  zoomOutButton.addEventListener('click', () => {
+      if (currentZoomLevel < 15) {
+          currentZoomLevel++;
+          adjustGrid();
+      }
+  });
+
+  // Pinch-to-zoom on mobile and wheel zoom on desktop
+  galleryContainer.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const zoomDelta = e.deltaY > 0 ? 1 : -1;
+      updateZoom(e.pageX, e.pageY, zoomDelta);
+  });
+
+  let pinchStartDistance = null;
+  galleryContainer.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 2) {
+          pinchStartDistance = getDistance(e.touches);
+      }
+  });
+
+  galleryContainer.addEventListener('touchmove', (e) => {
+      if (e.touches.length === 2 && pinchStartDistance !== null) {
+          const currentDistance = getDistance(e.touches);
+          const zoomDelta = currentDistance > pinchStartDistance ? -1 : 1;
+          updateZoom(
+              (e.touches[0].clientX + e.touches[1].clientX) / 2,
+              (e.touches[0].clientY + e.touches[1].clientY) / 2,
+              zoomDelta
+          );
+          pinchStartDistance = currentDistance;
+      }
+  });
+
+  function getDistance(touches) {
+      const dx = touches[0].clientX - touches[1].clientX;
+      const dy = touches[0].clientY - touches[1].clientY;
+      return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  // Adjust grid layout and maintain zooming logic centered on the cursor
+  function updateZoom(cursorX, cursorY, zoomDelta) {
+      const previousZoomLevel = currentZoomLevel;
+      currentZoomLevel = Math.max(2, Math.min(15, currentZoomLevel + zoomDelta));
+
+      if (currentZoomLevel === previousZoomLevel) return;
+
+      const relativeX = (cursorX - galleryRect.left) / galleryRect.width;
+      const relativeY = (cursorY - galleryRect.top) / galleryRect.height;
+
+      adjustGrid();
+
+      galleryRect = galleryContainer.getBoundingClientRect();
+      const newScrollLeft = relativeX * galleryRect.width - galleryContainer.clientWidth / 2;
+      const newScrollTop = relativeY * galleryRect.height - galleryContainer.clientHeight / 2;
+
+      galleryContainer.scrollLeft = newScrollLeft;
+      galleryContainer.scrollTop = newScrollTop;
+  }
+
+  function adjustGrid() {
+      galleryContainer.style.gridTemplateColumns = `repeat(${currentZoomLevel}, 1fr)`;
+  }
+
+  // Shuffle images in the gallery on load
+  function shuffleGallery() {
+      const images = Array.from(galleryContainer.children);
+      const shuffledImages = images.sort(() => Math.random() - 0.5);
+      galleryContainer.innerHTML = '';
+      shuffledImages.forEach(image => {
+          galleryContainer.appendChild(image);
+      });
+  }
+
+  // Randomize gallery and set default grid on page load
+  shuffleGallery();
+  adjustGrid();
 });
